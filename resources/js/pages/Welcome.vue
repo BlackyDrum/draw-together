@@ -78,7 +78,7 @@ import { Head } from '@inertiajs/vue3';
                                 </div>
                                 <div class="flex">
                                     <p
-                                        class="mx-auto mt-2 text-sm text-gray-500"
+                                        class="text-md mx-auto mt-2 bg-linear-to-br from-purple-300 to-purple-800 bg-clip-text text-transparent select-text"
                                     >
                                         1275 Rooms Live
                                     </p>
@@ -124,7 +124,7 @@ import { Head } from '@inertiajs/vue3';
                                 </div>
                                 <div class="flex">
                                     <p
-                                        class="mx-auto mt-2 text-sm text-gray-500"
+                                        class="text-md mx-auto mt-2 bg-linear-to-br from-blue-300 to-blue-800 bg-clip-text text-transparent select-text"
                                     >
                                         Invite your friends
                                     </p>
