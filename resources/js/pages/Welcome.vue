@@ -49,7 +49,11 @@ const createRoom = () => {
         <!-- Header -->
         <header class="w-64 max-md:mx-auto">
             <Link href="/">
-                <img src="static/img/logo.png" alt="Draw Together Logo" />
+                <img
+                    src="static/img/logo.png"
+                    class="transition duration-200 hover:scale-115"
+                    alt="Draw Together Logo"
+                />
             </Link>
         </header>
 
