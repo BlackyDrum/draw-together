@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { Head, Link, router } from '@inertiajs/vue3';
+import { router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
 import Spinner from '@/components/Spinner.vue';
+import AppLayout from '@/layouts/AppLayout.vue';
 
 const roomName = ref(null);
 
@@ -38,25 +39,7 @@ const createRoom = () => {
 </script>
 
 <template>
-    <Head title="Welcome">
-        <link rel="preconnect" href="https://rsms.me/" />
-        <link rel="stylesheet" href="https://rsms.me/inter/inter.css" />
-    </Head>
-
-    <div
-        class="min-h-screen bg-linear-to-br from-purple-100 via-blue-100 to-pink-50 px-4 py-8"
-    >
-        <!-- Header -->
-        <header class="w-64 max-md:mx-auto">
-            <Link href="/">
-                <img
-                    src="static/img/logo.png"
-                    class="transition duration-200 hover:scale-115"
-                    alt="Draw Together Logo"
-                />
-            </Link>
-        </header>
-
+    <AppLayout>
         <div class="flex flex-col items-center justify-center">
             <!-- Welcome -->
             <div class="mb-12 text-center">
@@ -252,5 +235,5 @@ const createRoom = () => {
                 </div>
             </div>
         </div>
-    </div>
+    </AppLayout>
 </template>
