@@ -60,23 +60,31 @@ import { Head } from '@inertiajs/vue3';
                         >
                             Join Room
                         </button>
-                        <div class="mt-6 flex items-center -space-x-3">
-                            <img
-                                class="h-12 w-12 rounded-full border-2 border-white"
-                                src="https://randomuser.me/api/portraits/women/44.jpg"
-                            />
-                            <img
-                                class="h-12 w-12 rounded-full border-2 border-white"
-                                src="https://randomuser.me/api/portraits/women/68.jpg"
-                            />
-                            <img
-                                class="h-12 w-12 rounded-full border-2 border-white"
-                                src="https://randomuser.me/api/portraits/women/72.jpg"
-                            />
+                        <div class="flex">
+                            <div class="mx-auto">
+                                <div class="mt-6 flex items-center -space-x-3">
+                                    <img
+                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        src="static/img/avatars/avatar1.png"
+                                    />
+                                    <img
+                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        src="static/img/avatars/avatar2.png"
+                                    />
+                                    <img
+                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        src="static/img/avatars/avatar3.png"
+                                    />
+                                </div>
+                                <div class="flex">
+                                    <p
+                                        class="mx-auto mt-2 text-sm text-gray-500"
+                                    >
+                                        1275 Rooms Live
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="mt-2 text-sm text-gray-500">
-                            1,254 Rooms Live
-                        </p>
                     </div>
                 </div>
 
@@ -98,23 +106,31 @@ import { Head } from '@inertiajs/vue3';
                         >
                             Create Room
                         </button>
-                        <div class="mt-6 flex items-center -space-x-3">
-                            <img
-                                class="h-12 w-12 rounded-full border-2 border-white"
-                                src="https://randomuser.me/api/portraits/men/45.jpg"
-                            />
-                            <img
-                                class="h-12 w-12 rounded-full border-2 border-white"
-                                src="https://randomuser.me/api/portraits/women/52.jpg"
-                            />
-                            <img
-                                class="h-12 w-12 rounded-full border-2 border-white"
-                                src="https://randomuser.me/api/portraits/men/34.jpg"
-                            />
+                        <div class="flex">
+                            <div class="mx-auto">
+                                <div class="mt-6 flex items-center -space-x-3">
+                                    <img
+                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        src="static/img/avatars/avatar4.png"
+                                    />
+                                    <img
+                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        src="static/img/avatars/avatar5.png"
+                                    />
+                                    <img
+                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        src="static/img/avatars/avatar6.png"
+                                    />
+                                </div>
+                                <div class="flex">
+                                    <p
+                                        class="mx-auto mt-2 text-sm text-gray-500"
+                                    >
+                                        Invite your friends
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <p class="mt-2 text-sm text-gray-500">
-                            Invite Your Friends
-                        </p>
                     </div>
                 </div>
             </div>
