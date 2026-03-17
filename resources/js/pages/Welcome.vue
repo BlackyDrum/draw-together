@@ -162,7 +162,7 @@ const createRoom = () => {
                         </button>
                         <div
                             v-if="$page.props.errors.name"
-                            class="mt-3 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-600 shadow-sm"
+                            class="mt-3 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-600 shadow-sm select-text"
                         >
                             <svg
                                 class="h-5 w-5 text-red-500"
