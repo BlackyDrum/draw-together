@@ -1,5 +1,38 @@
 <script setup lang="ts">
-import { Head, Link } from '@inertiajs/vue3';
+import { Head, Link, router } from '@inertiajs/vue3';
+import { ref } from 'vue';
+
+const roomName = ref(null);
+
+const isCreatingRoom = ref(false);
+
+const createRoom = () => {
+    if (isCreatingRoom.value) {
+        return;
+    }
+
+    isCreatingRoom.value = true;
+
+    router.post(
+        '/room/create',
+        {
+            name: roomName.value,
+        },
+        {
+            onSuccess: () => {
+                // ...
+            },
+
+            onError: () => {
+                // ...
+            },
+
+            onFinish: () => {
+                isCreatingRoom.value = false;
+            },
+        },
+    );
+};
 </script>
 
 <template>
@@ -99,15 +132,23 @@ import { Head, Link } from '@inertiajs/vue3';
                     </div>
                     <div class="mt-36">
                         <input
+                            v-model="roomName"
                             type="text"
                             placeholder="Room Name"
                             class="mb-6 w-full rounded-xl border border-gray-200 px-5 py-3 transition focus:ring-2 focus:ring-teal-200 focus:outline-none"
                         />
                         <button
+                            @click="createRoom"
                             class="w-full rounded-xl bg-linear-to-r from-teal-400 to-blue-400 py-3 font-semibold text-white shadow transition hover:cursor-pointer hover:from-teal-500 hover:to-blue-500"
                         >
                             Create Room
                         </button>
+                        <div
+                            v-if="$page.props.errors.name"
+                            class="mt-1 text-red-600"
+                        >
+                            {{ $page.props.errors.name }}
+                        </div>
                         <div class="flex">
                             <div class="mx-auto">
                                 <div class="mt-6 flex items-center -space-x-3">
