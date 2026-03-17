@@ -9,7 +9,7 @@ import { Head } from '@inertiajs/vue3';
     </Head>
 
     <div
-        class="bg-linear-to-br from-purple-100 via-blue-100 to-pink-50 px-4 py-8"
+        class="min-h-screen bg-linear-to-br from-purple-100 via-blue-100 to-pink-50 px-4 py-8"
     >
         <!-- Header -->
         <header class="w-64 max-md:mx-auto">
@@ -40,80 +40,82 @@ import { Head } from '@inertiajs/vue3';
 
             <!-- Cards -->
             <div
-                class="grid w-full max-w-5xl grid-cols-1 gap-10 font-bold md:grid-cols-2"
+                class="mt-10 grid w-full max-w-5xl grid-cols-1 gap-10 gap-y-20 font-bold md:grid-cols-2"
             >
                 <!-- Join Card -->
                 <div
                     class="relative flex flex-col items-center rounded-3xl bg-white p-10 shadow-2xl"
                 >
-                    <div class="mb-6">
+                    <div class="absolute -top-20">
                         <img src="static/img/join.png" alt="join icon" />
                     </div>
-                    <input
-                        v-model="joinCode"
-                        type="text"
-                        placeholder="Enter Room Code"
-                        class="mb-6 w-full rounded-xl border border-gray-200 px-5 py-3 transition focus:ring-2 focus:ring-purple-200 focus:outline-none"
-                    />
-                    <button
-                        @click="joinRoom"
-                        class="w-full rounded-xl bg-linear-to-r from-purple-400 to-purple-500 py-3 font-semibold text-white shadow transition hover:cursor-pointer hover:from-purple-500 hover:to-purple-600"
-                    >
-                        Join Room
-                    </button>
-                    <div class="mt-6 flex items-center -space-x-3">
-                        <img
-                            class="h-12 w-12 rounded-full border-2 border-white"
-                            src="https://randomuser.me/api/portraits/women/44.jpg"
+                    <div class="mt-36">
+                        <input
+                            type="text"
+                            placeholder="Enter Room Code"
+                            class="mb-6 w-full rounded-xl border border-gray-200 px-5 py-3 transition focus:ring-2 focus:ring-purple-200 focus:outline-none"
                         />
-                        <img
-                            class="h-12 w-12 rounded-full border-2 border-white"
-                            src="https://randomuser.me/api/portraits/women/68.jpg"
-                        />
-                        <img
-                            class="h-12 w-12 rounded-full border-2 border-white"
-                            src="https://randomuser.me/api/portraits/women/72.jpg"
-                        />
+                        <button
+                            class="w-full rounded-xl bg-linear-to-r from-purple-400 to-purple-500 py-3 font-semibold text-white shadow transition hover:cursor-pointer hover:from-purple-500 hover:to-purple-600"
+                        >
+                            Join Room
+                        </button>
+                        <div class="mt-6 flex items-center -space-x-3">
+                            <img
+                                class="h-12 w-12 rounded-full border-2 border-white"
+                                src="https://randomuser.me/api/portraits/women/44.jpg"
+                            />
+                            <img
+                                class="h-12 w-12 rounded-full border-2 border-white"
+                                src="https://randomuser.me/api/portraits/women/68.jpg"
+                            />
+                            <img
+                                class="h-12 w-12 rounded-full border-2 border-white"
+                                src="https://randomuser.me/api/portraits/women/72.jpg"
+                            />
+                        </div>
+                        <p class="mt-2 text-sm text-gray-500">
+                            1,254 Rooms Live
+                        </p>
                     </div>
-                    <p class="mt-2 text-sm text-gray-500">1,254 Rooms Live</p>
                 </div>
 
                 <!-- Create Card -->
                 <div
                     class="relative flex flex-col items-center rounded-3xl bg-white p-10 shadow-2xl"
                 >
-                    <div class="mb-6">
+                    <div class="absolute -top-20 mb-30">
                         <img src="static/img/create.png" alt="create icon" />
                     </div>
-                    <input
-                        v-model="createName"
-                        type="text"
-                        placeholder="Room Name"
-                        class="mb-6 w-full rounded-xl border border-gray-200 px-5 py-3 transition focus:ring-2 focus:ring-teal-200 focus:outline-none"
-                    />
-                    <button
-                        @click="createRoom"
-                        class="w-full rounded-xl bg-linear-to-r from-teal-400 to-blue-400 py-3 font-semibold text-white shadow transition hover:cursor-pointer hover:from-teal-500 hover:to-blue-500"
-                    >
-                        Create Room
-                    </button>
-                    <div class="mt-6 flex items-center -space-x-3">
-                        <img
-                            class="h-12 w-12 rounded-full border-2 border-white"
-                            src="https://randomuser.me/api/portraits/men/45.jpg"
+                    <div class="mt-36">
+                        <input
+                            type="text"
+                            placeholder="Room Name"
+                            class="mb-6 w-full rounded-xl border border-gray-200 px-5 py-3 transition focus:ring-2 focus:ring-teal-200 focus:outline-none"
                         />
-                        <img
-                            class="h-12 w-12 rounded-full border-2 border-white"
-                            src="https://randomuser.me/api/portraits/women/52.jpg"
-                        />
-                        <img
-                            class="h-12 w-12 rounded-full border-2 border-white"
-                            src="https://randomuser.me/api/portraits/men/34.jpg"
-                        />
+                        <button
+                            class="w-full rounded-xl bg-linear-to-r from-teal-400 to-blue-400 py-3 font-semibold text-white shadow transition hover:cursor-pointer hover:from-teal-500 hover:to-blue-500"
+                        >
+                            Create Room
+                        </button>
+                        <div class="mt-6 flex items-center -space-x-3">
+                            <img
+                                class="h-12 w-12 rounded-full border-2 border-white"
+                                src="https://randomuser.me/api/portraits/men/45.jpg"
+                            />
+                            <img
+                                class="h-12 w-12 rounded-full border-2 border-white"
+                                src="https://randomuser.me/api/portraits/women/52.jpg"
+                            />
+                            <img
+                                class="h-12 w-12 rounded-full border-2 border-white"
+                                src="https://randomuser.me/api/portraits/men/34.jpg"
+                            />
+                        </div>
+                        <p class="mt-2 text-sm text-gray-500">
+                            Invite Your Friends
+                        </p>
                     </div>
-                    <p class="mt-2 text-sm text-gray-500">
-                        Invite Your Friends
-                    </p>
                 </div>
             </div>
         </div>
