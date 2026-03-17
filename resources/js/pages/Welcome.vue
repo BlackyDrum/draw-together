@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head } from '@inertiajs/vue3';
+import { Head, Link } from '@inertiajs/vue3';
 </script>
 
 <template>
@@ -13,7 +13,9 @@ import { Head } from '@inertiajs/vue3';
     >
         <!-- Header -->
         <header class="w-64 max-md:mx-auto">
-            <img src="static/img/logo.png" alt="Draw Together Logo" />
+            <Link href="/">
+                <img src="static/img/logo.png" alt="Draw Together Logo" />
+            </Link>
         </header>
 
         <div class="flex flex-col items-center justify-center">
