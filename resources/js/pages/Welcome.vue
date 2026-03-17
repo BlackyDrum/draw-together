@@ -81,45 +81,62 @@ const createRoom = () => {
             >
                 <!-- Join Card -->
                 <div
-                    class="relative flex flex-col items-center rounded-3xl bg-white p-10 shadow-2xl"
+                    class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
                 >
-                    <div class="absolute -top-20">
-                        <img src="static/img/join.png" alt="join icon" />
+                    <!-- glow border -->
+                    <div
+                        class="pointer-events-none absolute inset-0 rounded-3xl border border-white/40"
+                    ></div>
+
+                    <!-- floating icon -->
+                    <div
+                        class="absolute -top-20 transition duration-300 hover:scale-105"
+                    >
+                        <img
+                            src="static/img/join.png"
+                            alt="join icon"
+                            class="drop-shadow-lg"
+                        />
                     </div>
-                    <div class="mt-36">
+
+                    <div class="mt-36 w-full">
+                        <!-- input -->
                         <input
                             type="text"
                             placeholder="Enter Room Code"
-                            class="mb-6 w-full rounded-xl border border-gray-200 px-5 py-3 transition focus:ring-2 focus:ring-purple-200 focus:outline-none"
+                            class="mb-6 w-full rounded-xl border border-gray-200 bg-white px-5 py-3 shadow-sm transition focus:border-purple-300 focus:ring-2 focus:ring-purple-200 focus:outline-none"
                         />
+
+                        <!-- button -->
                         <button
-                            class="w-full rounded-xl bg-linear-to-r from-purple-400 to-purple-500 py-3 font-semibold text-white shadow transition hover:cursor-pointer hover:from-purple-500 hover:to-purple-600"
+                            class="w-full rounded-xl bg-linear-to-r from-purple-400 to-purple-500 py-3 font-semibold text-white shadow-lg transition duration-200 hover:scale-[1.02] hover:from-purple-500 hover:to-purple-600 active:scale-95"
                         >
                             Join Room
                         </button>
-                        <div class="flex">
-                            <div class="mx-auto">
-                                <div class="mt-6 flex items-center -space-x-3">
+
+                        <!-- avatars -->
+                        <div class="mt-6 flex justify-center">
+                            <div>
+                                <div class="flex items-center -space-x-3">
                                     <img
-                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        class="h-12 w-12 rounded-full border-2 border-white shadow"
                                         src="static/img/avatars/avatar1.png"
                                     />
                                     <img
-                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        class="h-12 w-12 rounded-full border-2 border-white shadow"
                                         src="static/img/avatars/avatar2.png"
                                     />
                                     <img
-                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        class="h-12 w-12 rounded-full border-2 border-white shadow"
                                         src="static/img/avatars/avatar3.png"
                                     />
                                 </div>
-                                <div class="flex">
-                                    <p
-                                        class="text-md mx-auto mt-2 bg-linear-to-br from-purple-300 to-purple-800 bg-clip-text text-transparent select-text"
-                                    >
-                                        1275 Rooms Live
-                                    </p>
-                                </div>
+
+                                <p
+                                    class="mt-2 bg-linear-to-br from-purple-400 to-purple-700 bg-clip-text text-center text-sm font-semibold text-transparent"
+                                >
+                                    1275 Rooms Live
+                                </p>
                             </div>
                         </div>
                     </div>
@@ -127,32 +144,49 @@ const createRoom = () => {
 
                 <!-- Create Card -->
                 <div
-                    class="relative flex flex-col items-center rounded-3xl bg-white p-10 shadow-2xl"
+                    class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
                 >
-                    <div class="absolute -top-20 mb-30">
-                        <img src="static/img/create.png" alt="create icon" />
+                    <!-- gradient border glow -->
+                    <div
+                        class="pointer-events-none absolute inset-0 rounded-3xl border border-white/40"
+                    ></div>
+
+                    <!-- floating icon -->
+                    <div
+                        class="absolute -top-20 mb-30 transition duration-300 hover:scale-105"
+                    >
+                        <img
+                            src="static/img/create.png"
+                            alt="create icon"
+                            class="drop-shadow-lg"
+                        />
                     </div>
-                    <div class="mt-36">
+
+                    <div class="mt-36 w-full">
+                        <!-- input -->
                         <input
                             v-model="roomName"
                             type="text"
                             placeholder="Room Name"
-                            class="mb-6 w-full rounded-xl border border-gray-200 px-5 py-3 transition focus:ring-2 focus:ring-teal-200 focus:outline-none"
+                            class="mb-6 w-full rounded-xl border border-gray-200 bg-white px-5 py-3 shadow-sm transition focus:border-teal-300 focus:ring-2 focus:ring-teal-200 focus:outline-none"
                         />
+
+                        <!-- button -->
                         <button
                             @click="createRoom"
                             :disabled="isCreatingRoom"
-                            class="w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-teal-400 to-blue-400 py-3 font-semibold text-white shadow transition"
+                            class="w-full rounded-xl bg-linear-to-r from-teal-400 to-blue-400 py-3 font-semibold text-white shadow-lg transition duration-200"
                             :class="[
                                 isCreatingRoom
                                     ? 'cursor-not-allowed opacity-70'
-                                    : 'hover:cursor-pointer hover:from-teal-500 hover:to-blue-500',
+                                    : 'cursor-pointer hover:scale-[1.02] hover:from-teal-500 hover:to-blue-500 active:scale-95',
                             ]"
                         >
                             <span
                                 class="flex items-center justify-center gap-2"
                             >
                                 <Spinner v-if="isCreatingRoom" />
+
                                 {{
                                     isCreatingRoom
                                         ? 'Creating...'
@@ -160,9 +194,11 @@ const createRoom = () => {
                                 }}
                             </span>
                         </button>
+
+                        <!-- error -->
                         <div
                             v-if="$page.props.errors.name"
-                            class="mt-3 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-600 shadow-sm select-text"
+                            class="mt-3 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-600 shadow-sm"
                         >
                             <svg
                                 class="h-5 w-5 text-red-500"
@@ -182,29 +218,30 @@ const createRoom = () => {
                                 {{ $page.props.errors.name }}
                             </span>
                         </div>
-                        <div class="flex">
-                            <div class="mx-auto">
-                                <div class="mt-6 flex items-center -space-x-3">
+
+                        <!-- avatars -->
+                        <div class="mt-6 flex justify-center">
+                            <div>
+                                <div class="flex items-center -space-x-3">
                                     <img
-                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        class="h-12 w-12 rounded-full border-2 border-white shadow"
                                         src="static/img/avatars/avatar4.png"
                                     />
                                     <img
-                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        class="h-12 w-12 rounded-full border-2 border-white shadow"
                                         src="static/img/avatars/avatar5.png"
                                     />
                                     <img
-                                        class="h-12 w-12 rounded-full border-2 border-white"
+                                        class="h-12 w-12 rounded-full border-2 border-white shadow"
                                         src="static/img/avatars/avatar6.png"
                                     />
                                 </div>
-                                <div class="flex">
-                                    <p
-                                        class="text-md mx-auto mt-2 bg-linear-to-br from-blue-300 to-blue-800 bg-clip-text text-transparent select-text"
-                                    >
-                                        Invite your friends
-                                    </p>
-                                </div>
+
+                                <p
+                                    class="mt-2 bg-linear-to-br from-blue-400 to-blue-700 bg-clip-text text-center text-sm font-semibold text-transparent"
+                                >
+                                    Invite your friends
+                                </p>
                             </div>
                         </div>
                     </div>
