@@ -2,6 +2,8 @@
 import { Head, Link, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
+import Spinner from '@/components/Spinner.vue';
+
 const roomName = ref(null);
 
 const isCreatingRoom = ref(false);
@@ -139,13 +141,28 @@ const createRoom = () => {
                         />
                         <button
                             @click="createRoom"
-                            class="w-full rounded-xl bg-linear-to-r from-teal-400 to-blue-400 py-3 font-semibold text-white shadow transition hover:cursor-pointer hover:from-teal-500 hover:to-blue-500"
+                            :disabled="isCreatingRoom"
+                            class="w-full items-center justify-center gap-2 rounded-xl bg-linear-to-r from-teal-400 to-blue-400 py-3 font-semibold text-white shadow transition"
+                            :class="[
+                                isCreatingRoom
+                                    ? 'cursor-not-allowed opacity-70'
+                                    : 'hover:cursor-pointer hover:from-teal-500 hover:to-blue-500',
+                            ]"
                         >
-                            Create Room
+                            <span
+                                class="flex items-center justify-center gap-2"
+                            >
+                                <Spinner v-if="isCreatingRoom" />
+                                {{
+                                    isCreatingRoom
+                                        ? 'Creating...'
+                                        : 'Create Room'
+                                }}
+                            </span>
                         </button>
                         <div
                             v-if="$page.props.errors.name"
-                            class="mt-1 text-red-600"
+                            class="mt-1 text-center text-red-600"
                         >
                             {{ $page.props.errors.name }}
                         </div>
