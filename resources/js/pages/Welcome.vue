@@ -40,7 +40,7 @@ import { Head } from '@inertiajs/vue3';
 
             <!-- Cards -->
             <div
-                class="mt-10 grid w-full max-w-5xl grid-cols-1 gap-10 gap-y-20 font-bold md:grid-cols-2"
+                class="mt-10 grid w-full max-w-5xl grid-cols-1 gap-10 gap-y-20 font-bold select-none md:grid-cols-2"
             >
                 <!-- Join Card -->
                 <div
