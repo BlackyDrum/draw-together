@@ -39,6 +39,10 @@ const colors = [
         value: 'orange',
         gradient: 'radial-gradient(circle at 30% 30%, #ffb84d, #cc6600)',
     },
+    {
+        value: '#fff',
+        gradient: 'radial-gradient(circle at 30% 30%, #fff, #eee)',
+    },
 ];
 
 onMounted(() => {
@@ -139,7 +143,7 @@ function clearCanvas() {
 
                 <Divider />
 
-                <div class="mt-1 flex flex-col items-center gap-4">
+                <div class="mt-1 flex flex-col items-center gap-3">
                     <ColorDot
                         v-for="c in colors"
                         :key="c.value"
