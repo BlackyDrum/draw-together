@@ -90,6 +90,9 @@ function clearCanvas() {
                     />
                 </button>
 
+                <!-- divider -->
+                <div class="my-0.5 h-0.5 rounded bg-blue-100"></div>
+
                 <!-- Brush -->
                 <button
                     @click="
@@ -105,6 +108,9 @@ function clearCanvas() {
                     />
                 </button>
 
+                <!-- divider -->
+                <div class="my-0.5 h-0.5 rounded bg-blue-100"></div>
+
                 <!-- Undo -->
                 <button
                     @click="undo"
@@ -116,6 +122,9 @@ function clearCanvas() {
                         alt="Undo"
                     />
                 </button>
+
+                <!-- divider -->
+                <div class="my-0.5 h-0.5 rounded bg-blue-100"></div>
 
                 <!-- Trash -->
                 <button
