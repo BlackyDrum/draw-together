@@ -4,6 +4,7 @@ import { ref, onMounted } from 'vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 import Divider from '@/components/Divider.vue';
 import Tool from '@/components/Tool.vue';
+import ColorDot from '@/components/ColorDot.vue';
 
 const canvas = ref(null);
 const ctx = ref(null);
@@ -16,6 +17,29 @@ const size = ref(4);
 const history = [];
 
 const tool = ref('pen');
+
+const colors = [
+    {
+        value: '#000',
+        gradient: 'radial-gradient(circle at 30% 30%, #000, #111)',
+    },
+    {
+        value: 'red',
+        gradient: 'radial-gradient(circle at 30% 30%, #ff4d4d, #cc0000)',
+    },
+    {
+        value: 'blue',
+        gradient: 'radial-gradient(circle at 30% 30%, #4d9aff, #0033cc)',
+    },
+    {
+        value: 'green',
+        gradient: 'radial-gradient(circle at 30% 30%, #66ff66, #009900)',
+    },
+    {
+        value: 'orange',
+        gradient: 'radial-gradient(circle at 30% 30%, #ffb84d, #cc6600)',
+    },
+];
 
 onMounted(() => {
     ctx.value = canvas.value.getContext('2d');
@@ -118,85 +142,13 @@ function clearCanvas() {
 
                 <!-- colors -->
                 <div class="mt-1 flex flex-col items-center gap-4">
-                    <div
-                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
-                        style="
-                            background: radial-gradient(
-                                circle at 30% 30%,
-                                #000,
-                                #111
-                            );
-                        "
-                        @click="color = '#000'"
-                    >
-                        <div
-                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
-                        ></div>
-                    </div>
-
-                    <div
-                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
-                        style="
-                            background: radial-gradient(
-                                circle at 30% 30%,
-                                #ff4d4d,
-                                #cc0000
-                            );
-                        "
-                        @click="color = 'red'"
-                    >
-                        <div
-                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
-                        ></div>
-                    </div>
-
-                    <div
-                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
-                        style="
-                            background: radial-gradient(
-                                circle at 30% 30%,
-                                #4d9aff,
-                                #0033cc
-                            );
-                        "
-                        @click="color = 'blue'"
-                    >
-                        <div
-                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
-                        ></div>
-                    </div>
-
-                    <div
-                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
-                        style="
-                            background: radial-gradient(
-                                circle at 30% 30%,
-                                #66ff66,
-                                #009900
-                            );
-                        "
-                        @click="color = 'green'"
-                    >
-                        <div
-                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
-                        ></div>
-                    </div>
-
-                    <div
-                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
-                        style="
-                            background: radial-gradient(
-                                circle at 30% 30%,
-                                #ffb84d,
-                                #cc6600
-                            );
-                        "
-                        @click="color = 'orange'"
-                    >
-                        <div
-                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
-                        ></div>
-                    </div>
+                    <ColorDot
+                        v-for="c in colors"
+                        :key="c.value"
+                        :value="c.value"
+                        :gradient="c.gradient"
+                        @select="color = $event"
+                    />
                 </div>
             </div>
 
