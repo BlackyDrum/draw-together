@@ -3,9 +3,7 @@ import { Link } from '@inertiajs/vue3';
 </script>
 
 <template>
-    <div
-        class="min-h-screen bg-linear-to-br from-purple-100 via-blue-100 to-pink-50 px-4"
-    >
+    <div class="bg-drawing-pattern min-h-screen px-4">
         <!-- Header -->
         <header class="w-64 max-md:mx-auto">
             <Link :href="'/'">
@@ -20,3 +18,13 @@ import { Link } from '@inertiajs/vue3';
         <slot />
     </div>
 </template>
+
+<style scoped>
+.bg-drawing-pattern {
+    position: relative;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1)),
+        url('/static/img/bg-pattern.png') bottom center / cover no-repeat;
+}
+</style>

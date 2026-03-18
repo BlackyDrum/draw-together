@@ -82,7 +82,7 @@ const joinRoom = () => {
             >
                 <!-- Join Card -->
                 <div
-                    class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+                    class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-[0_-15px_30px_rgba(0,0,0,0.08),0_25px_50px_rgba(0,0,0,0.2)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_-20px_40px_rgba(0,0,0,0.1),0_35px_70px_rgba(0,0,0,0.25)]"
                 >
                     <div
                         class="absolute -top-20 transition duration-300 hover:scale-105"
@@ -154,7 +154,7 @@ const joinRoom = () => {
 
                 <!-- Create Card -->
                 <div
-                    class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
+                    class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-[0_-15px_30px_rgba(0,0,0,0.08),0_25px_50px_rgba(0,0,0,0.2)] backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_-20px_40px_rgba(0,0,0,0.1),0_35px_70px_rgba(0,0,0,0.25)]"
                 >
                     <div
                         class="absolute -top-20 mb-30 transition duration-300 hover:scale-105"
