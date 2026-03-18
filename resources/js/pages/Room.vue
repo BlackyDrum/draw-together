@@ -3,6 +3,7 @@ import { ref, onMounted } from 'vue';
 
 import AppLayout from '@/layouts/AppLayout.vue';
 import Divider from '@/components/Divider.vue';
+import Tool from '@/components/Tool.vue';
 
 const canvas = ref(null);
 const ctx = ref(null);
@@ -77,64 +78,41 @@ function clearCanvas() {
                 class="flex flex-col gap-1 rounded-3xl border border-white/50 bg-white/90 p-2 shadow-[0_10px_25px_rgba(0,0,0,0.15)] backdrop-blur"
             >
                 <!-- Pen -->
-                <button
+                <Tool
+                    imagePath="/static/img/tools/pen.png"
                     @click="
                         tool = 'pen';
                         size = 4;
                     "
-                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
                 >
-                    <img
-                        src="/static/img/tools/pen.png"
-                        class="h-17 w-17 object-contain transition hover:scale-110"
-                        alt="Pen"
-                    />
-                </button>
+                </Tool>
 
                 <Divider />
 
                 <!-- Brush -->
-                <button
+                <Tool
+                    imagePath="/static/img/tools/brush.png"
                     @click="
                         tool = 'brush';
                         size = 10;
                     "
-                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
                 >
-                    <img
-                        src="/static/img/tools/brush.png"
-                        class="h-17 w-17 object-contain transition hover:scale-110"
-                        alt="Brush"
-                    />
-                </button>
+                </Tool>
 
                 <Divider />
 
                 <!-- Undo -->
-                <button
-                    @click="undo"
-                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
-                >
-                    <img
-                        src="/static/img/tools/undo.png"
-                        class="h-17 w-17 object-contain transition hover:scale-110"
-                        alt="Undo"
-                    />
-                </button>
+                <Tool imagePath="/static/img/tools/undo.png" @click="undo">
+                </Tool>
 
                 <Divider />
 
                 <!-- Trash -->
-                <button
+                <Tool
+                    imagePath="/static/img/tools/trash.png"
                     @click="clearCanvas"
-                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
                 >
-                    <img
-                        src="/static/img/tools/trash.png"
-                        class="h-17 w-17 object-contain transition hover:scale-110"
-                        alt="Trash"
-                    />
-                </button>
+                </Tool>
 
                 <Divider />
 
