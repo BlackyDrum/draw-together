@@ -31,12 +31,22 @@ class HomeController extends Controller
 
         $room = Room::create([
             'name' => $validated['name'],
-            'is_active' => true,
             'code' => Str::random(8)
         ]);
 
         return redirect()->route('room.show', [
             'code' => $room->code
+        ]);
+    }
+
+    public function join_room(Request $request)
+    {
+        $validated = $request->validate([
+            'code' => 'required|string|max:64|exists:rooms,code'
+        ]);
+
+        return redirect()->route('room.show', [
+            'code' => $validated['code']
         ]);
     }
 }

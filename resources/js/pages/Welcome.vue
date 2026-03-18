@@ -6,8 +6,10 @@ import Spinner from '@/components/Spinner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 
 const roomName = ref(null);
+const roomCode = ref(null);
 
 const isCreatingRoom = ref(false);
+const isJoiningRoom = ref(false);
 
 const createRoom = () => {
     if (isCreatingRoom.value) {
@@ -22,16 +24,28 @@ const createRoom = () => {
             name: roomName.value,
         },
         {
-            onSuccess: () => {
-                // ...
-            },
-
-            onError: () => {
-                // ...
-            },
-
             onFinish: () => {
                 isCreatingRoom.value = false;
+            },
+        },
+    );
+};
+
+const joinRoom = () => {
+    if (isJoiningRoom.value) {
+        return;
+    }
+
+    isJoiningRoom.value = true;
+
+    router.post(
+        '/room/join',
+        {
+            code: roomCode.value,
+        },
+        {
+            onFinish: () => {
+                isJoiningRoom.value = false;
             },
         },
     );
@@ -89,17 +103,54 @@ const createRoom = () => {
                     <div class="mt-36 w-full">
                         <!-- input -->
                         <input
+                            v-model="roomCode"
                             type="text"
                             placeholder="Enter Room Code"
                             class="mb-6 w-full rounded-xl border border-gray-200 bg-white px-5 py-3 shadow-sm transition focus:border-purple-300 focus:ring-2 focus:ring-purple-200 focus:outline-none"
                         />
 
-                        <!-- button -->
                         <button
-                            class="w-full rounded-xl bg-linear-to-r from-purple-400 to-purple-500 py-3 font-semibold text-white shadow-lg transition duration-200 hover:scale-[1.02] hover:from-purple-500 hover:to-purple-600 active:scale-95"
+                            @click="joinRoom"
+                            :disabled="isJoiningRoom"
+                            class="w-full rounded-xl bg-linear-to-r from-purple-400 to-purple-500 py-3 font-semibold text-white shadow-lg transition duration-200"
+                            :class="[
+                                isJoiningRoom
+                                    ? 'cursor-not-allowed opacity-70'
+                                    : 'cursor-pointer hover:scale-[1.02] hover:from-purple-500 hover:to-purple-600 active:scale-95',
+                            ]"
                         >
-                            Join Room
+                            <span
+                                class="flex items-center justify-center gap-2"
+                            >
+                                <Spinner v-if="isJoiningRoom" />
+
+                                {{ isJoiningRoom ? 'Joining...' : 'Join Room' }}
+                            </span>
                         </button>
+
+                        <!-- error -->
+                        <div
+                            v-if="$page.props.errors.code"
+                            class="mt-3 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-600 shadow-sm"
+                        >
+                            <svg
+                                class="h-5 w-5 text-red-500"
+                                fill="none"
+                                stroke="currentColor"
+                                viewBox="0 0 24 24"
+                            >
+                                <path
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                    stroke-width="2"
+                                    d="M12 9v2m0 4h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4c-.77-1.33-2.69-1.33-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z"
+                                />
+                            </svg>
+
+                            <span>
+                                {{ $page.props.errors.code }}
+                            </span>
+                        </div>
 
                         <!-- avatars -->
                         <div class="mt-6 flex justify-center">

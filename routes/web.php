@@ -5,4 +5,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'home'])->name('home');
 Route::post('/room/create', [HomeController::class, 'create_room'])->name('room.create');
+Route::post('/room/join', [HomeController::class, 'join_room'])->name('room.join');
 Route::get('/room/{code}', [HomeController::class, 'room'])->name('room.show');
