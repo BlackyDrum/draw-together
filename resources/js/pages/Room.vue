@@ -13,6 +13,8 @@ const size = ref(4);
 
 const history = [];
 
+const tool = ref('pen');
+
 onMounted(() => {
     ctx.value = canvas.value.getContext('2d');
 
@@ -78,7 +80,10 @@ function clearCanvas() {
 
                 <!-- Pen -->
                 <button
-                    @click="size = 4"
+                    @click="
+                        tool = 'pen';
+                        size = 4;
+                    "
                     class="rounded-xl bg-blue-200 px-4 py-2 font-semibold text-blue-900 shadow transition hover:scale-105 active:scale-95"
                 >
                     ✏️ Pen
@@ -86,7 +91,10 @@ function clearCanvas() {
 
                 <!-- Brush -->
                 <button
-                    @click="size = 10"
+                    @click="
+                        tool = 'brush';
+                        size = 10;
+                    "
                     class="rounded-xl bg-purple-200 px-4 py-2 font-semibold text-purple-900 shadow transition hover:scale-105 active:scale-95"
                 >
                     🖌 Brush
@@ -156,7 +164,11 @@ function clearCanvas() {
                     ref="canvas"
                     width="900"
                     height="600"
-                    class="rounded-2xl bg-white"
+                    class="rounded-2xl"
+                    :class="[
+                        tool === 'pen' && 'cursor-crosshair',
+                        tool === 'brush' && 'cursor-cell',
+                    ]"
                     @mousedown="startDraw"
                     @mousemove="draw"
                     @mouseup="stopDraw"
