@@ -81,7 +81,7 @@ function clearCanvas() {
                         tool = 'pen';
                         size = 4;
                     "
-                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100 active:scale-95"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
                 >
                     <img
                         src="/static/img/tools/pen.png"
@@ -99,7 +99,7 @@ function clearCanvas() {
                         tool = 'brush';
                         size = 10;
                     "
-                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100 active:scale-95"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
                 >
                     <img
                         src="/static/img/tools/brush.png"
@@ -114,7 +114,7 @@ function clearCanvas() {
                 <!-- Undo -->
                 <button
                     @click="undo"
-                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100 active:scale-95"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
                 >
                     <img
                         src="/static/img/tools/undo.png"
@@ -129,7 +129,7 @@ function clearCanvas() {
                 <!-- Trash -->
                 <button
                     @click="clearCanvas"
-                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100 active:scale-95"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
                 >
                     <img
                         src="/static/img/tools/trash.png"
