@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 
 import AppLayout from '@/layouts/AppLayout.vue';
+import Divider from '@/components/Divider.vue';
 
 const canvas = ref(null);
 const ctx = ref(null);
@@ -90,8 +91,7 @@ function clearCanvas() {
                     />
                 </button>
 
-                <!-- divider -->
-                <div class="my-0.5 h-0.5 rounded bg-blue-100"></div>
+                <Divider />
 
                 <!-- Brush -->
                 <button
@@ -108,8 +108,7 @@ function clearCanvas() {
                     />
                 </button>
 
-                <!-- divider -->
-                <div class="my-0.5 h-0.5 rounded bg-blue-100"></div>
+                <Divider />
 
                 <!-- Undo -->
                 <button
@@ -123,8 +122,7 @@ function clearCanvas() {
                     />
                 </button>
 
-                <!-- divider -->
-                <div class="my-0.5 h-0.5 rounded bg-blue-100"></div>
+                <Divider />
 
                 <!-- Trash -->
                 <button
@@ -138,8 +136,7 @@ function clearCanvas() {
                     />
                 </button>
 
-                <!-- divider -->
-                <div class="my-2 h-0.5 rounded bg-blue-100"></div>
+                <Divider />
 
                 <!-- colors -->
                 <div class="mt-1 flex flex-col items-center gap-4">
