@@ -85,7 +85,7 @@ function clearCanvas() {
                 >
                     <img
                         src="/static/img/tools/pen.png"
-                        class="h-18 w-18 object-contain transition hover:scale-110"
+                        class="h-17 w-17 object-contain transition hover:scale-110"
                         alt="Pen"
                     />
                 </button>
@@ -103,7 +103,7 @@ function clearCanvas() {
                 >
                     <img
                         src="/static/img/tools/brush.png"
-                        class="h-18 w-18 object-contain transition hover:scale-110"
+                        class="h-17 w-17 object-contain transition hover:scale-110"
                         alt="Brush"
                     />
                 </button>
@@ -118,7 +118,7 @@ function clearCanvas() {
                 >
                     <img
                         src="/static/img/tools/undo.png"
-                        class="h-18 w-18 object-contain transition hover:scale-110"
+                        class="h-17 w-17 object-contain transition hover:scale-110"
                         alt="Undo"
                     />
                 </button>
@@ -133,16 +133,13 @@ function clearCanvas() {
                 >
                     <img
                         src="/static/img/tools/trash.png"
-                        class="h-18 w-18 object-contain transition hover:scale-110"
+                        class="h-17 w-17 object-contain transition hover:scale-110"
                         alt="Trash"
                     />
                 </button>
 
                 <!-- divider -->
                 <div class="my-2 h-0.5 rounded bg-blue-100"></div>
-
-                <!-- colors title -->
-                <p class="text-center font-bold text-pink-500">Colors</p>
 
                 <!-- colors -->
                 <div class="mt-1 flex flex-col items-center gap-4">
