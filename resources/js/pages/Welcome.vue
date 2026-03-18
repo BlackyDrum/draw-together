@@ -2,6 +2,7 @@
 import { router } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
+import ErrorMessage from '@/components/ErrorMessage.vue';
 import Spinner from '@/components/Spinner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 
@@ -128,29 +129,9 @@ const joinRoom = () => {
                             </span>
                         </button>
 
-                        <!-- error -->
-                        <div
-                            v-if="$page.props.errors.code"
-                            class="mt-3 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-600 shadow-sm"
-                        >
-                            <svg
-                                class="h-5 w-5 text-red-500"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M12 9v2m0 4h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4c-.77-1.33-2.69-1.33-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z"
-                                />
-                            </svg>
-
-                            <span>
-                                {{ $page.props.errors.code }}
-                            </span>
-                        </div>
+                        <ErrorMessage v-if="$page.props.errors.code">
+                            {{ $page.props.errors.code }}
+                        </ErrorMessage>
 
                         <!-- avatars -->
                         <div class="mt-6 flex justify-center">
@@ -233,29 +214,9 @@ const joinRoom = () => {
                             </span>
                         </button>
 
-                        <!-- error -->
-                        <div
-                            v-if="$page.props.errors.name"
-                            class="mt-3 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-2 text-sm font-medium text-red-600 shadow-sm"
-                        >
-                            <svg
-                                class="h-5 w-5 text-red-500"
-                                fill="none"
-                                stroke="currentColor"
-                                viewBox="0 0 24 24"
-                            >
-                                <path
-                                    stroke-linecap="round"
-                                    stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M12 9v2m0 4h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4c-.77-1.33-2.69-1.33-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z"
-                                />
-                            </svg>
-
-                            <span>
-                                {{ $page.props.errors.name }}
-                            </span>
-                        </div>
+                        <ErrorMessage v-if="$page.props.errors.name">
+                            {{ $page.props.errors.name }}
+                        </ErrorMessage>
 
                         <!-- avatars -->
                         <div class="mt-6 flex justify-center">
