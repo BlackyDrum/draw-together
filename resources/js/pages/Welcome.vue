@@ -152,9 +152,9 @@ const joinRoom = () => {
                                 </div>
 
                                 <p
-                                    class="mt-2 bg-linear-to-br from-purple-400 to-purple-700 bg-clip-text text-center text-sm font-semibold text-transparent"
+                                    class="mt-2 bg-linear-to-br from-purple-400 to-purple-700 bg-clip-text text-center text-sm font-semibold text-transparent select-text"
                                 >
-                                    1275 Rooms Live
+                                    {{ $page.props.live_rooms }} Rooms Live
                                 </p>
                             </div>
                         </div>
@@ -237,7 +237,7 @@ const joinRoom = () => {
                                 </div>
 
                                 <p
-                                    class="mt-2 bg-linear-to-br from-blue-400 to-blue-700 bg-clip-text text-center text-sm font-semibold text-transparent"
+                                    class="mt-2 bg-linear-to-br from-blue-400 to-blue-700 bg-clip-text text-center text-sm font-semibold text-transparent select-text"
                                 >
                                     Invite your friends
                                 </p>

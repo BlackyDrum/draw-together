@@ -11,7 +11,9 @@ class HomeController extends Controller
 {
     public function home(Request $request)
     {
-        return Inertia::render('Welcome');
+        return Inertia::render('Welcome', [
+            'live_rooms' => Room::count()
+        ]);
     }
 
     public function room($code)
