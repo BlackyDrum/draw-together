@@ -73,20 +73,21 @@ function clearCanvas() {
         <div class="flex flex-row items-stretch justify-center gap-8">
             <!-- LEFT TOOLBAR -->
             <div
-                class="flex flex-col gap-4 rounded-3xl border border-white/50 bg-white/90 p-5 shadow-[0_10px_25px_rgba(0,0,0,0.15)] backdrop-blur"
+                class="flex flex-col gap-1 rounded-3xl border border-white/50 bg-white/90 p-2 shadow-[0_10px_25px_rgba(0,0,0,0.15)] backdrop-blur"
             >
-                <!-- tools title -->
-                <p class="text-center font-bold text-blue-500">Tools</p>
-
                 <!-- Pen -->
                 <button
                     @click="
                         tool = 'pen';
                         size = 4;
                     "
-                    class="rounded-xl bg-blue-200 px-4 py-2 font-semibold text-blue-900 shadow transition hover:scale-105 active:scale-95"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100 active:scale-95"
                 >
-                    ✏️ Pen
+                    <img
+                        src="/static/img/tools/pen.png"
+                        class="h-18 w-18 object-contain transition hover:scale-110"
+                        alt="Pen"
+                    />
                 </button>
 
                 <!-- Brush -->
@@ -95,29 +96,41 @@ function clearCanvas() {
                         tool = 'brush';
                         size = 10;
                     "
-                    class="rounded-xl bg-purple-200 px-4 py-2 font-semibold text-purple-900 shadow transition hover:scale-105 active:scale-95"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100 active:scale-95"
                 >
-                    🖌 Brush
+                    <img
+                        src="/static/img/tools/brush.png"
+                        class="h-18 w-18 object-contain transition hover:scale-110"
+                        alt="Brush"
+                    />
                 </button>
 
                 <!-- Undo -->
                 <button
                     @click="undo"
-                    class="rounded-xl bg-yellow-200 px-4 py-2 font-semibold text-yellow-900 shadow transition hover:scale-105 active:scale-95"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100 active:scale-95"
                 >
-                    ↩ Undo
+                    <img
+                        src="/static/img/tools/undo.png"
+                        class="h-18 w-18 object-contain transition hover:scale-110"
+                        alt="Undo"
+                    />
                 </button>
 
                 <!-- Trash -->
                 <button
                     @click="clearCanvas"
-                    class="rounded-xl bg-red-200 px-4 py-2 font-semibold text-red-900 shadow transition hover:scale-105 active:scale-95"
+                    class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100 active:scale-95"
                 >
-                    🗑 Clear
+                    <img
+                        src="/static/img/tools/trash.png"
+                        class="h-18 w-18 object-contain transition hover:scale-110"
+                        alt="Trash"
+                    />
                 </button>
 
                 <!-- divider -->
-                <div class="my-2 h-[2px] rounded bg-blue-100"></div>
+                <div class="my-2 h-0.5 rounded bg-blue-100"></div>
 
                 <!-- colors title -->
                 <p class="text-center font-bold text-pink-500">Colors</p>
@@ -156,24 +169,44 @@ function clearCanvas() {
                 </div>
             </div>
 
-            <!-- CANVAS -->
-            <div
-                class="rounded-[30px] border border-white/60 bg-white p-5 shadow-[0_15px_35px_rgba(0,0,0,0.2)]"
-            >
-                <canvas
-                    ref="canvas"
-                    width="900"
-                    height="600"
-                    class="rounded-2xl"
-                    :class="[
-                        tool === 'pen' && 'cursor-crosshair',
-                        tool === 'brush' && 'cursor-cell',
-                    ]"
-                    @mousedown="startDraw"
-                    @mousemove="draw"
-                    @mouseup="stopDraw"
-                    @mouseleave="stopDraw"
-                />
+            <!-- CANVAS AREA -->
+            <div class="flex flex-col gap-4">
+                <!-- ROOM BAR -->
+                <div
+                    class="flex items-center justify-between rounded-2xl border border-white/60 bg-white/90 px-6 py-3 shadow backdrop-blur"
+                >
+                    <!-- room name -->
+                    <div class="text-lg font-bold text-blue-600">
+                        {{ $page.props.room.name }}
+                    </div>
+
+                    <!-- code -->
+                    <div
+                        class="rounded-xl bg-blue-100 px-4 py-1 font-mono text-blue-700 shadow"
+                    >
+                        Code: {{ $page.props.room.code }}
+                    </div>
+                </div>
+
+                <!-- CANVAS -->
+                <div
+                    class="rounded-[30px] border border-white/60 bg-white p-5 shadow-[0_15px_35px_rgba(0,0,0,0.2)]"
+                >
+                    <canvas
+                        ref="canvas"
+                        width="900"
+                        height="600"
+                        class="rounded-2xl"
+                        :class="[
+                            tool === 'pen' && 'cursor-crosshair',
+                            tool === 'brush' && 'cursor-cell',
+                        ]"
+                        @mousedown="startDraw"
+                        @mousemove="draw"
+                        @mouseup="stopDraw"
+                        @mouseleave="stopDraw"
+                    />
+                </div>
             </div>
         </div>
     </AppLayout>
