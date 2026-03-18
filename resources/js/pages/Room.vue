@@ -97,7 +97,6 @@ function clearCanvas() {
 <template>
     <AppLayout>
         <div class="flex flex-row items-stretch justify-center gap-8">
-            <!-- LEFT TOOLBAR -->
             <div
                 class="flex flex-col gap-1 rounded-3xl border border-white/50 bg-white/90 p-2 shadow-[0_10px_25px_rgba(0,0,0,0.15)] backdrop-blur"
             >
@@ -140,7 +139,6 @@ function clearCanvas() {
 
                 <Divider />
 
-                <!-- colors -->
                 <div class="mt-1 flex flex-col items-center gap-4">
                     <ColorDot
                         v-for="c in colors"
@@ -152,18 +150,14 @@ function clearCanvas() {
                 </div>
             </div>
 
-            <!-- CANVAS AREA -->
             <div class="flex flex-col gap-4">
-                <!-- ROOM BAR -->
                 <div
                     class="flex items-center justify-between rounded-2xl border border-white/60 bg-white/90 px-6 py-3 shadow backdrop-blur"
                 >
-                    <!-- room name -->
                     <div class="text-lg font-bold text-blue-600">
                         {{ $page.props.room.name }}
                     </div>
 
-                    <!-- code -->
                     <div
                         class="rounded-xl bg-blue-100 px-4 py-1 font-mono text-blue-700 shadow"
                     >
@@ -171,7 +165,6 @@ function clearCanvas() {
                     </div>
                 </div>
 
-                <!-- CANVAS -->
                 <div
                     class="relative rounded-[30px] border border-white/60 bg-white p-5 shadow-[0_15px_35px_rgba(0,0,0,0.2)]"
                 >
