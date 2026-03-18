@@ -56,7 +56,6 @@ const joinRoom = () => {
 <template>
     <AppLayout>
         <div class="flex flex-col items-center justify-center">
-            <!-- Welcome -->
             <div class="mb-12 text-center">
                 <h1 class="mb-2 text-4xl font-bold text-blue-900 md:text-5xl">
                     <span
@@ -85,12 +84,10 @@ const joinRoom = () => {
                 <div
                     class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
                 >
-                    <!-- glow border -->
                     <div
                         class="pointer-events-none absolute inset-0 rounded-3xl border border-white/40"
                     ></div>
 
-                    <!-- floating icon -->
                     <div
                         class="absolute -top-20 transition duration-300 hover:scale-105"
                     >
@@ -102,7 +99,6 @@ const joinRoom = () => {
                     </div>
 
                     <div class="mt-36 w-full">
-                        <!-- input -->
                         <input
                             v-model="roomCode"
                             type="text"
@@ -133,7 +129,6 @@ const joinRoom = () => {
                             {{ $page.props.errors.code }}
                         </ErrorMessage>
 
-                        <!-- avatars -->
                         <div class="mt-6 flex justify-center">
                             <div>
                                 <div class="flex items-center -space-x-3">
@@ -165,12 +160,10 @@ const joinRoom = () => {
                 <div
                     class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
                 >
-                    <!-- gradient border glow -->
                     <div
                         class="pointer-events-none absolute inset-0 rounded-3xl border border-white/40"
                     ></div>
 
-                    <!-- floating icon -->
                     <div
                         class="absolute -top-20 mb-30 transition duration-300 hover:scale-105"
                     >
@@ -182,7 +175,6 @@ const joinRoom = () => {
                     </div>
 
                     <div class="mt-36 w-full">
-                        <!-- input -->
                         <input
                             v-model="roomName"
                             type="text"
@@ -190,7 +182,6 @@ const joinRoom = () => {
                             class="mb-6 w-full rounded-xl border border-gray-200 bg-white px-5 py-3 shadow-sm transition focus:border-teal-300 focus:ring-2 focus:ring-teal-200 focus:outline-none"
                         />
 
-                        <!-- button -->
                         <button
                             @click="createRoom"
                             :disabled="isCreatingRoom"
@@ -218,7 +209,6 @@ const joinRoom = () => {
                             {{ $page.props.errors.name }}
                         </ErrorMessage>
 
-                        <!-- avatars -->
                         <div class="mt-6 flex justify-center">
                             <div>
                                 <div class="flex items-center -space-x-3">
