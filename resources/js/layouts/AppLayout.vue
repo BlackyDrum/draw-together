@@ -10,7 +10,7 @@ import { Link } from '@inertiajs/vue3';
         <header class="w-64 max-md:mx-auto">
             <Link>
                 <img
-                    src="static/img/logo.png"
+                    src="/static/img/logo.png"
                     class="transition duration-200 hover:scale-115"
                     alt="Draw Together Logo"
                 />
