@@ -4,7 +4,7 @@ import { Link } from '@inertiajs/vue3';
 
 <template>
     <div
-        class="py8 min-h-screen bg-linear-to-br from-purple-100 via-blue-100 to-pink-50 px-4"
+        class="min-h-screen bg-linear-to-br from-purple-100 via-blue-100 to-pink-50 px-4"
     >
         <!-- Header -->
         <header class="w-64 max-md:mx-auto">
