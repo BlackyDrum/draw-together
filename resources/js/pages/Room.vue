@@ -145,36 +145,86 @@ function clearCanvas() {
                 <p class="text-center font-bold text-pink-500">Colors</p>
 
                 <!-- colors -->
-                <div class="mt-1 flex flex-col items-center gap-3">
+                <div class="mt-1 flex flex-col items-center gap-4">
                     <div
-                        class="h-8 w-8 cursor-pointer rounded-full border-2 border-white shadow transition hover:scale-110"
-                        style="background: black"
+                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
+                        style="
+                            background: radial-gradient(
+                                circle at 30% 30%,
+                                #000,
+                                #111
+                            );
+                        "
                         @click="color = '#000'"
-                    />
+                    >
+                        <div
+                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
+                        ></div>
+                    </div>
 
                     <div
-                        class="h-8 w-8 cursor-pointer rounded-full border-2 border-white shadow transition hover:scale-110"
-                        style="background: red"
+                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
+                        style="
+                            background: radial-gradient(
+                                circle at 30% 30%,
+                                #ff4d4d,
+                                #cc0000
+                            );
+                        "
                         @click="color = 'red'"
-                    />
+                    >
+                        <div
+                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
+                        ></div>
+                    </div>
 
                     <div
-                        class="h-8 w-8 cursor-pointer rounded-full border-2 border-white shadow transition hover:scale-110"
-                        style="background: blue"
+                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
+                        style="
+                            background: radial-gradient(
+                                circle at 30% 30%,
+                                #4d9aff,
+                                #0033cc
+                            );
+                        "
                         @click="color = 'blue'"
-                    />
+                    >
+                        <div
+                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
+                        ></div>
+                    </div>
 
                     <div
-                        class="h-8 w-8 cursor-pointer rounded-full border-2 border-white shadow transition hover:scale-110"
-                        style="background: green"
+                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
+                        style="
+                            background: radial-gradient(
+                                circle at 30% 30%,
+                                #66ff66,
+                                #009900
+                            );
+                        "
                         @click="color = 'green'"
-                    />
+                    >
+                        <div
+                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
+                        ></div>
+                    </div>
 
                     <div
-                        class="h-8 w-8 cursor-pointer rounded-full border-2 border-white shadow transition hover:scale-110"
-                        style="background: orange"
+                        class="relative h-10 w-10 cursor-pointer overflow-hidden rounded-full border-4 border-white shadow-[0_5px_15px_rgba(0,0,0,0.3)] transition hover:scale-125 active:scale-110"
+                        style="
+                            background: radial-gradient(
+                                circle at 30% 30%,
+                                #ffb84d,
+                                #cc6600
+                            );
+                        "
                         @click="color = 'orange'"
-                    />
+                    >
+                        <div
+                            class="absolute top-1 left-1 h-2 w-2 rounded-full bg-white opacity-50"
+                        ></div>
+                    </div>
                 </div>
             </div>
 
@@ -199,13 +249,13 @@ function clearCanvas() {
 
                 <!-- CANVAS -->
                 <div
-                    class="rounded-[30px] border border-white/60 bg-white p-5 shadow-[0_15px_35px_rgba(0,0,0,0.2)]"
+                    class="relative rounded-[30px] border border-white/60 bg-white p-5 shadow-[0_15px_35px_rgba(0,0,0,0.2)]"
                 >
                     <canvas
                         ref="canvas"
                         width="900"
                         height="600"
-                        class="rounded-2xl"
+                        class="rounded-2xl shadow-[inset_0_0_15px_rgba(0,0,0,0.1),0_8px_20px_rgba(0,0,0,0.2)]"
                         :class="[
                             tool === 'pen' && 'cursor-crosshair',
                             tool === 'brush' && 'cursor-cell',
