@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Room;
+use App\Models\UsersInRooms;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
@@ -36,6 +37,11 @@ class HomeController extends Controller
             'code' => Str::random(8)
         ]);
 
+        UsersInRooms::firstOrCreate([
+            'session_id' => session()->id(),
+            'room_id' => $room->id
+        ]);
+
         return redirect()->route('room.show', [
             'code' => $room->code
         ]);
@@ -47,8 +53,15 @@ class HomeController extends Controller
             'code' => 'required|string|max:64|exists:rooms,code'
         ]);
 
+        $room = Room::where('code', $validated['code'])->first();
+
+        UsersInRooms::firstOrCreate([
+            'session_id' => session()->id(),
+            'room_id' => $room->id
+        ]);
+
         return redirect()->route('room.show', [
-            'code' => $validated['code']
+            'code' => $room->code
         ]);
     }
 }
