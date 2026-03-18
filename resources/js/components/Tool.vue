@@ -4,7 +4,6 @@ defineProps(['imagePath']);
 
 <template>
     <button
-        @click="$emit('click')"
         class="inline-flex cursor-pointer items-center justify-center rounded-xl p-2 transition hover:bg-blue-100/30 active:scale-95"
     >
         <img
