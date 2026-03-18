@@ -23,8 +23,10 @@ import { Link } from '@inertiajs/vue3';
 .bg-drawing-pattern {
     position: relative;
     min-height: 100vh;
-    background:
-        linear-gradient(rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.1)),
-        url('/static/img/bg-pattern.png') bottom center / cover no-repeat;
+    background-image: url('/static/img/bg-pattern.png');
+    background-position: bottom center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #fafafa;
 }
 </style>
