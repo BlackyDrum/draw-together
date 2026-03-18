@@ -85,10 +85,6 @@ const joinRoom = () => {
                     class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
                 >
                     <div
-                        class="pointer-events-none absolute inset-0 rounded-3xl border border-white/40"
-                    ></div>
-
-                    <div
                         class="absolute -top-20 transition duration-300 hover:scale-105"
                     >
                         <img
@@ -160,10 +156,6 @@ const joinRoom = () => {
                 <div
                     class="relative flex flex-col items-center rounded-3xl bg-white/90 p-10 shadow-2xl backdrop-blur transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_60px_rgba(0,0,0,0.15)]"
                 >
-                    <div
-                        class="pointer-events-none absolute inset-0 rounded-3xl border border-white/40"
-                    ></div>
-
                     <div
                         class="absolute -top-20 mb-30 transition duration-300 hover:scale-105"
                     >
