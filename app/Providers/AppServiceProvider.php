@@ -3,6 +3,9 @@
 namespace App\Providers;
 
 use Carbon\CarbonImmutable;
+use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Foundation\Application;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\ServiceProvider;
@@ -23,7 +26,50 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $this->configureDefaults();
+        Auth::extend('guest', function (Application $app, string $name, array $config) {
+            return new class implements Guard {
+                protected $user;
+
+                public function check(): bool
+                {
+                    return true;
+                }
+
+                public function guest(): bool
+                {
+                    return false;
+                }
+
+                public function user()
+                {
+                    return (object)[
+                        'id' => 0,
+                        'name' => 'Guest',
+                    ];
+                }
+
+                public function id()
+                {
+                    return 0;
+                }
+
+                public function validate(array $credentials = []): bool
+                {
+                    return true;
+                }
+
+                public function setUser($user)
+                {
+                    $this->user = $user;
+                    return $this;
+                }
+
+                public function hasUser(): bool
+                {
+                    return true;
+                }
+            };
+        });
     }
 
     /**
@@ -37,14 +83,15 @@ class AppServiceProvider extends ServiceProvider
             app()->isProduction(),
         );
 
-        Password::defaults(fn (): ?Password => app()->isProduction()
-            ? Password::min(12)
+        Password::defaults(
+            fn(): ?Password => app()->isProduction()
+                ? Password::min(12)
                 ->mixedCase()
                 ->letters()
                 ->numbers()
                 ->symbols()
                 ->uncompromised()
-            : null,
+                : null,
         );
     }
 }

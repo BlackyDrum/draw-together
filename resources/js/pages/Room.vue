@@ -6,6 +6,9 @@ import Divider from '@/components/Divider.vue';
 import Tool from '@/components/Tool.vue';
 import ColorDot from '@/components/ColorDot.vue';
 
+import { useEcho } from '@laravel/echo-vue';
+import { usePage } from '@inertiajs/vue3';
+
 const canvas = ref(null);
 const ctx = ref(null);
 
@@ -17,6 +20,8 @@ const size = ref(4);
 const history = [];
 
 const tool = ref('pen');
+
+const page = usePage();
 
 const colors = [
     {
@@ -45,6 +50,17 @@ const colors = [
     },
 ];
 
+const { channel } = useEcho(`room.${page.props.room.code}`, [], () => {});
+
+channel().listenForWhisper('draw', (e) => {
+    drawFromSocket(e);
+});
+
+channel().listenForWhisper('start', (e) => {
+    ctx.value.beginPath();
+    ctx.value.moveTo(e.x, e.y);
+});
+
 onMounted(() => {
     ctx.value = canvas.value.getContext('2d');
 
@@ -57,17 +73,32 @@ function startDraw(e) {
     ctx.value.beginPath();
     ctx.value.moveTo(e.offsetX, e.offsetY);
 
+    channel().whisper('start', {
+        x: e.offsetX,
+        y: e.offsetY,
+    });
+
     saveState();
 }
 
 function draw(e) {
-    if (!drawing.value) return;
+    if (!drawing.value) {
+        return;
+    }
 
     ctx.value.strokeStyle = color.value;
     ctx.value.lineWidth = size.value;
 
     ctx.value.lineTo(e.offsetX, e.offsetY);
     ctx.value.stroke();
+
+    channel().whisper('draw', {
+        x: e.offsetX,
+        y: e.offsetY,
+        color: color.value,
+        size: size.value,
+        tool: tool.value,
+    });
 }
 
 function stopDraw() {
@@ -79,7 +110,9 @@ function saveState() {
 }
 
 function undo() {
-    if (!history.length) return;
+    if (!history.length) {
+        return;
+    }
 
     const img = new Image();
     img.src = history.pop();
@@ -95,6 +128,16 @@ function clearCanvas() {
     saveState();
 
     ctx.value.clearRect(0, 0, canvas.value.width, canvas.value.height);
+}
+
+function drawFromSocket(e) {
+    ctx.value.lineWidth = e.size;
+
+    ctx.value.globalCompositeOperation = 'source-over';
+    ctx.value.strokeStyle = e.color;
+
+    ctx.value.lineTo(e.x, e.y);
+    ctx.value.stroke();
 }
 </script>
 
