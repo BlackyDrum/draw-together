@@ -61,6 +61,10 @@ channel().listenForWhisper('start', (e) => {
     ctx.value.moveTo(e.x, e.y);
 });
 
+channel().listenForWhisper('clear', () => {
+    ctx.value.clearRect(0, 0, canvas.value.width, canvas.value.height);
+});
+
 onMounted(() => {
     ctx.value = canvas.value.getContext('2d');
 
@@ -128,6 +132,8 @@ function clearCanvas() {
     saveState();
 
     ctx.value.clearRect(0, 0, canvas.value.width, canvas.value.height);
+
+    channel().whisper('clear');
 }
 
 function drawFromSocket(e) {
