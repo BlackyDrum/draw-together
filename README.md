@@ -57,7 +57,7 @@ $ composer run dev
 
 ### Real-time Setup
 
-This project uses Laravel Reverb for real-time messaging. Ensure you set up your `.env` file with:
+This project uses Laravel Reverb for real-time drawing. Ensure you set up your `.env` file with:
 ```env
 REVERB_APP_ID=
 REVERB_APP_KEY=
