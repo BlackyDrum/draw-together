@@ -1,4 +1,4 @@
-## WhatsApp Clone
+## Draw Together
 
 <p>A real-time collaborative drawing application where multiple users can draw together on a shared canvas, built using Vue.js, Inertia.js, Laravel, and Laravel Reverb.</p>
 
