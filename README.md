@@ -2,7 +2,7 @@
 
 <p>A real-time collaborative drawing application where multiple users can draw together on a shared canvas, built using Vue.js, Inertia.js, Laravel, and Laravel Reverb.</p>
 
-![preview](https://github.com/user-attachments/assets/8f9f7b80-3d36-46d0-9b5a-da62a05e2638)
+![preview](https://github.com/user-attachments/assets/5be4bfad-bbab-4b5b-a913-b847296e2cab)
 
 ---
 
