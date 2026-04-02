@@ -5,30 +5,31 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class UsersInRooms extends Model
+class RoomStroke extends Model
 {
     protected $fillable = [
-        'session_id',
         'room_id',
+        'stroke_id',
+        'session_id',
         'display_name',
+        'tool',
         'color',
-        'last_seen_at',
+        'size',
+        'points',
+        'position',
     ];
 
     protected function casts(): array
     {
         return [
-            'last_seen_at' => 'datetime',
+            'points' => 'array',
+            'size' => 'integer',
+            'position' => 'integer',
         ];
     }
 
     public function room(): BelongsTo
     {
         return $this->belongsTo(Room::class);
-    }
-
-    public function scopeActive($query, int $windowInSeconds = 45)
-    {
-        return $query->where('last_seen_at', '>=', now()->subSeconds($windowInSeconds));
     }
 }

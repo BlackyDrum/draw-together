@@ -1,5 +1,6 @@
 import { createInertiaApp } from '@inertiajs/vue3';
 import { configureEcho } from '@laravel/echo-vue';
+import axios from 'axios';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import type { DefineComponent } from 'vue';
 import { createApp, h } from 'vue';
@@ -8,6 +9,16 @@ import '../css/app.css';
 configureEcho({
     broadcaster: 'reverb',
 });
+
+axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+
+const csrfToken = document
+    .querySelector('meta[name="csrf-token"]')
+    ?.getAttribute('content');
+
+if (csrfToken) {
+    axios.defaults.headers.common['X-CSRF-TOKEN'] = csrfToken;
+}
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 

@@ -6,7 +6,7 @@ import { Link } from '@inertiajs/vue3';
     <div class="bg-drawing-pattern min-h-screen px-4">
         <!-- Header -->
         <header class="w-64 max-md:mx-auto">
-            <Link :href="'/'">
+            <Link href="/">
                 <img
                     src="/static/img/logo.png"
                     class="transition duration-200 hover:scale-115"

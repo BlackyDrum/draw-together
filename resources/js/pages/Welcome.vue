@@ -6,8 +6,8 @@ import ErrorMessage from '@/components/ErrorMessage.vue';
 import Spinner from '@/components/Spinner.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
 
-const roomName = ref(null);
-const roomCode = ref(null);
+const roomName = ref('');
+const roomCode = ref('');
 
 const isCreatingRoom = ref(false);
 const isJoiningRoom = ref(false);
@@ -50,6 +50,10 @@ const joinRoom = () => {
             },
         },
     );
+};
+
+const normalizeRoomCode = () => {
+    roomCode.value = roomCode.value.replace(/\s+/g, '').toUpperCase();
 };
 </script>
 
@@ -98,8 +102,11 @@ const joinRoom = () => {
                         <input
                             v-model="roomCode"
                             type="text"
+                            maxlength="8"
                             placeholder="Enter Room Code"
                             class="mb-6 w-full rounded-xl border border-gray-200 bg-white px-5 py-3 shadow-sm transition focus:border-purple-300 focus:ring-2 focus:ring-purple-200 focus:outline-none"
+                            @input="normalizeRoomCode"
+                            @keydown.enter.prevent="joinRoom"
                         />
 
                         <button
@@ -145,7 +152,8 @@ const joinRoom = () => {
                                 <p
                                     class="mt-2 bg-linear-to-br from-purple-400 to-purple-700 bg-clip-text text-center text-sm font-semibold text-transparent select-text"
                                 >
-                                    {{ $page.props.live_rooms }} Rooms Live
+                                    {{ $page.props.live_rooms }} Rooms Active
+                                    Now
                                 </p>
                             </div>
                         </div>
@@ -170,8 +178,10 @@ const joinRoom = () => {
                         <input
                             v-model="roomName"
                             type="text"
+                            maxlength="16"
                             placeholder="Room Name"
                             class="mb-6 w-full rounded-xl border border-gray-200 bg-white px-5 py-3 shadow-sm transition focus:border-teal-300 focus:ring-2 focus:ring-teal-200 focus:outline-none"
+                            @keydown.enter.prevent="createRoom"
                         />
 
                         <button
